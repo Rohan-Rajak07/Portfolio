@@ -13,7 +13,7 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.z = 600;
+camera.position.z = 700;
 
 let object;
 let objToRender='eye';
@@ -31,7 +31,7 @@ loader.load(`models/${objToRender}/scene.gltf`,
 );
 
 const canvas = document.getElementById('draw');
-const renderer = new THREE.WebGLRenderer({ canvas });
+const renderer = new THREE.WebGLRenderer({ canvas ,antialias: true,});
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 //Add lights to the scene, so we can actually see the 3D model
@@ -52,6 +52,7 @@ scene.add(ambientLight);
 // scene.add(ambientLightHelper);
 
 
+// object.position.x=0.1;
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
@@ -62,8 +63,13 @@ function animate() {
   controls.update();
   object.rotation.y = -3 + mouseX / window.innerWidth * 3;
   object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
+  // object.position.x=200;
   renderer.render(scene, camera);
 }
+
+
+
+
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
