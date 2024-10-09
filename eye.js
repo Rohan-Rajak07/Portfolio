@@ -1,4 +1,3 @@
-
 // import * as THREE from 'three';
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
@@ -14,6 +13,8 @@ import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/l
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 700;
+
+
 
 let object;
 let objToRender='eye';
@@ -52,19 +53,52 @@ scene.add(ambientLight);
 // scene.add(ambientLightHelper);
 
 
-// object.position.x=0.1;
+
+
+let currentScroll=0;
+let targetScroll=0;
+let ease=0.00025
+
+let theta1=0;
+let theta2=0;
+let theta3=0;
+
+let animationActive=true;
+let animationFreamRequest=false;
+
+window.addEventListener("scroll", (e)=>{
+  console.log(window.scrollY); // Changed from pageYOffset to scrollY
+  currentScroll=window.scrollY*0.001
+  // camera.position.z-=currentScroll*0.1;
+  if(currentScroll>1)
+  object.scale.set(currentScroll,currentScroll,currentScroll);
+  
+  
+});
 
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 
-const controls = new OrbitControls(camera, renderer.domElement);
+
 function animate() {
   requestAnimationFrame(animate);
-  controls.update();
-  object.rotation.y = -3 + mouseX / window.innerWidth * 3;
-  object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
-  // object.position.x=200;
+  console.log(object.position);
+  if(currentScroll<2)
+  {
+    object.rotation.y = -3 + mouseX / window.innerWidth * 3;
+    object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
+    // console.log(object.rotation.y);
+    // console.log(object.rotation.x);
+
+  }
+  else
+  {
+    // object.rotation.y = -Math.PI/2;
+    object.rotation.y = -1.54;
+    object.rotation.x = -0.001;
+  }
   renderer.render(scene, camera);
+
 }
 
 
