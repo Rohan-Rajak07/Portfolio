@@ -56,24 +56,21 @@ scene.add(ambientLight);
 
 
 let currentScroll=0;
-let targetScroll=0;
-let ease=0.00025
+let op=1;
 
-let theta1=0;
-let theta2=0;
-let theta3=0;
+let home =document.querySelector(".HomePage");
 
-let animationActive=true;
-let animationFreamRequest=false;
-
+//Scroll Eventlistener---
 window.addEventListener("scroll", (e)=>{
-  console.log(window.scrollY); // Changed from pageYOffset to scrollY
-  currentScroll=window.scrollY*0.001
-  // camera.position.z-=currentScroll*0.1;
-  if(currentScroll>1)
-  object.scale.set(currentScroll,currentScroll,currentScroll);
-  
-  
+
+  currentScroll = window.scrollY * 0.001;
+
+  //set opacity value
+  op=1-(currentScroll*0.2)
+
+  if(currentScroll > 1) {
+    object.scale.set(currentScroll, currentScroll, currentScroll);
+  }
 });
 
 let mouseX = window.innerWidth / 2;
@@ -82,28 +79,32 @@ let mouseY = window.innerHeight / 2;
 
 function animate() {
   requestAnimationFrame(animate);
-  console.log(object.position);
+  // Set opacity of a HomePage---
+  if(op<0)
+  {
+    home.style.display="none"
+  }
+  else
+  {
+    home.style.display="flex";
+    home.style.opacity=op;
+    // console.log(op);
+  }
+
+//Eye Movement
   if(currentScroll<2)
   {
     object.rotation.y = -3 + mouseX / window.innerWidth * 3;
     object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
-    // console.log(object.rotation.y);
-    // console.log(object.rotation.x);
-
   }
   else
   {
-    // object.rotation.y = -Math.PI/2;
     object.rotation.y = -1.54;
     object.rotation.x = -0.001;
   }
   renderer.render(scene, camera);
 
 }
-
-
-
-
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {

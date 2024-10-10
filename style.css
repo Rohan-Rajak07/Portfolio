@@ -6,10 +6,8 @@
 }
 
 body{
-  /* overflow: hidden; */
   overflow-x: hidden;
-  /* overflow-y: visible; */
-  /* background-color: #000; */
+  background-color: #000;
 }
 #draw
 {
@@ -34,7 +32,6 @@ body{
 }
 .leftbox
 {
-  /* background-color: aliceblue; */
   height: 100%;
   width: 50%;
   margin: 0px 5vw ;
@@ -146,6 +143,7 @@ body{
   flex-direction: column;
   /* align-items: end; */
   justify-content: center;
+  /* background-color: transparent; */
 }
 .rightbox p
 {
