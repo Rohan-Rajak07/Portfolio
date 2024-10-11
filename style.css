@@ -1,13 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lacquer&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Raleway','Montserrat', sans-serif;
+  font-family: 'Raleway','Montserrat', 'Lacquer';
 }
 
 body{
   overflow-x: hidden;
   background-color: #000;
+}
+body::-webkit-scrollbar{
+  display: block;
+  width:5px;
+  background-color:black;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: white;
+  border-radius: 5px;
 }
 #draw
 {
@@ -24,7 +36,9 @@ body{
   top: 0;
   left: 0;
   background-color: transparent;
-  /* background-color: blue; */
+  /* background-image: url(data/blood2.jpg);
+  background-position: center; */
+  background-size: cover;
   display: flex;
   justify-content: space-between;
   color: white;
