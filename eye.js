@@ -2,18 +2,18 @@
 // import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
+
 //Import the THREE.js library
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 // To allow for the camera to move around the scene
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
-
+import {AnimationAction} from 'three';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.z = 700;
-
 
 
 let object;
@@ -30,6 +30,13 @@ loader.load(`models/${objToRender}/scene.gltf`,
         console.error(error);
      }
 );
+
+const geometry = new THREE.BoxGeometry(1, 1, 1);
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+// scene.add(cube);
+
+
 
 const canvas = document.getElementById('draw');
 const renderer = new THREE.WebGLRenderer({ canvas ,antialias: true,});
@@ -64,6 +71,18 @@ let home =document.querySelector(".HomePage");
 window.addEventListener("scroll", (e)=>{
 
   currentScroll = window.scrollY * 0.001;
+  console.log(currentScroll);
+  if(currentScroll>6)
+  {
+      scene.remove(object);
+      scene.add(cube);
+      camera.position.z=5;
+  }
+  else
+  {
+    scene.add(object);
+    camera.position.z=700;
+  }
 
   //set opacity value
   op=1-(currentScroll*0.2)
@@ -105,6 +124,40 @@ function animate() {
   renderer.render(scene, camera);
 
 }
+
+//Loader Animation
+// const load=document.querySelector(".loader");
+
+// setTimeout(() => {
+//   load.style.top="-100%"
+// }, 2000);
+
+// gsap.from(".HomePage .leftbox",{
+//   x:-200,
+//   duration:3,
+// })
+
+
+let aboutMeElement = document.querySelector('.rightbox p');
+let aboutMe=aboutMeElement.textContent;
+let text = '';
+let i = 0;
+let speed = 20; // adjust the speed of the autowrite effect
+
+function autowrite(){
+  if (i < aboutMe.length) {
+    text += aboutMe.charAt(i);
+    aboutMeElement.textContent = text;
+    i++;
+    setTimeout(autowrite, speed);
+  }
+}
+window.onload = autowrite;
+
+
+
+
+
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
