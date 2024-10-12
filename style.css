@@ -197,13 +197,13 @@ body::-webkit-scrollbar-thumb{
   gap: 18px;
   /* justify-content: center; */
 }
-img
+.icons img
 {
   height: 35px;
   border-radius: 8px;
   transition: all ease 0.5s;
 }
-img:hover
+.icons img:hover
 {
   box-shadow: 7px 5px 56px -1px #ffffff;
   transform: rotate(-360deg) scale(1.1);
@@ -214,11 +214,91 @@ img:hover
 }
 .scroll
 {
-  height: 2000vw;
   width: 100vw;
-  background-color: #f0f0f0;
   position: absolute;
+  top: 0;
+  left: 0;
   z-index: 0;
   background-color: transparent;
+  /* background-color: #f0f0f0; */
   color: white;
 }
+.pg1
+{
+  height: 900vh;
+  width: 100%;
+  position: relative;
+}
+.pg2
+{
+  height: 100vh;
+  width: 100%;
+  position: relative; 
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 60px;
+  transition: all linear 0.1s;
+}
+.imgbox
+{
+  height: 70%;
+  width: 40%;
+  background-color: black;
+  /* border-radius: 10px; */
+}
+.imgbox img
+{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+.disp
+{
+  height: 70%;
+  width: 40%;
+  color: white;
+  /* background-color: rgb(217, 42, 42); */
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.disp h2{
+  font-weight: 500;
+  font-size: 2rem;
+}
+.points 
+{
+  width: 80%;
+  /* background-color: gray; */
+  margin-top: 10px;
+  line-height: 1.7rem;
+  font-size: 17px;
+  color: rgba(207, 204, 204, 0.811);
+
+}
+.points p
+{
+  margin-top: 10px;
+}
+
+.pg3
+{
+  height: 100vh;
+  width: 100%;
+  position: relative; 
+  /* background-color: white; */
+  /* background-color: #ff0000; */
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 60px;
+  transition: all linear 0.1s;
+}
+
+
