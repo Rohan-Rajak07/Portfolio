@@ -228,24 +228,26 @@ body::-webkit-scrollbar-thumb{
   height: 900vh;
   width: 100%;
   position: relative;
+  
 }
-.pg2
+.pg2, .pg3, .pg4
 {
   height: 100vh;
-  width: 100%;
-  position: relative; 
-  color: black;
+  width: 100vw;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 60px;
   transition: all linear 0.1s;
+ 
 }
 .imgbox
 {
   height: 70%;
-  width: 40%;
-  background-color: black;
+  width: 42%;
+  /* background-color: black; */
+  overflow: hidden;
   /* border-radius: 10px; */
 }
 .imgbox img
@@ -261,15 +263,18 @@ body::-webkit-scrollbar-thumb{
   width: 40%;
   color: white;
   /* background-color: rgb(217, 42, 42); */
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   /* gap: 20px; */
   /* align-items: center; */
   /* justify-content: center; */
 }
 .disp h2{
-  font-weight: 500;
-  font-size: 2rem;
+  /* font-family:'Lacquer' ; */
+
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
 }
 .points 
 {
@@ -286,19 +291,7 @@ body::-webkit-scrollbar-thumb{
   margin-top: 10px;
 }
 
-.pg3
-{
-  height: 100vh;
-  width: 100%;
-  position: relative; 
-  /* background-color: white; */
-  /* background-color: #ff0000; */
-  color: black;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px 60px;
-  transition: all linear 0.1s;
-}
+
+
 
 

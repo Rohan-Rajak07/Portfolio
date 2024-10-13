@@ -10,12 +10,7 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight,0.1,1000);
 camera.position.z = 700;
 
 let object;
@@ -31,38 +26,32 @@ loader.load(
     console.error(error);
   }
 );
+// Create the Earth with texture and material
+const earthGeometry = new THREE.SphereGeometry(5, 32, 32);
+const earthTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg');
+const earthMaterial = new THREE.MeshPhongMaterial({ map: earthTexture });
+const earth = new THREE.Mesh(earthGeometry, earthMaterial);
+// scene.add(earth);
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
-
-// Add colorful background stars
+// Add brighter background stars
 const starsGeometry = new THREE.BufferGeometry();
-const starsMaterial = new THREE.PointsMaterial({
-  size: 0.8,
-  vertexColors: false,
-});
+const starsMaterial = new THREE.PointsMaterial({ size: 0.5, color: 0xffffff });
 
 const starsVertices = [];
-const starsColors = [];
-//Creating  stars
-for (let i = 0; i < 2000; i++) {
-  const x = (Math.random() - 0.5) * 2000;
-  const y = (Math.random() - 0.5) * 2000;
-  const z = (Math.random() - 0.5) * 2000;
-  starsVertices.push(x, y, z);
-
-  // const r = Math.random();
-  // const g = Math.random();
-  // const b = Math.random();
-  // starsColors.push(r, g, b);
+for (let i = 0; i < 1500; i++) {
+    const x = (Math.random() - 0.5) * 2000;
+    const y = (Math.random() - 0.5) * 2000;
+    const z = (Math.random() - 0.5) * 2000;
+    starsVertices.push(x, y, z);
 }
-
-starsGeometry.setAttribute("position",new THREE.Float32BufferAttribute(starsVertices, 3));
-// starsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(starsColors, 3));
+starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
 const starField = new THREE.Points(starsGeometry, starsMaterial);
-// scene.add(starField);
+// scene.add(starField)
+
+  // Increased rotation speed for more noticeable effect
+  let rotationSpeed = 0.002; 
+  let starRotationSpeed=0.0002
+
 
 
 const canvas = document.getElementById("draw");
@@ -97,12 +86,13 @@ window.addEventListener("scroll", (e) => {
   console.log(currentScroll);
   if (currentScroll > 6) {
     scene.remove(object);
-    // scene.add(cube);
     scene.add(starField);
-    camera.position.z = 5;
+    scene.add(earth);
+    camera.position.z = 15;
   } else {
     scene.add(object);
     scene.remove(starField);
+    scene.remove(earth);
     camera.position.z = 700;
   }
 
@@ -119,6 +109,8 @@ let mouseY = window.innerHeight / 2;
 
 function animate() {
   requestAnimationFrame(animate);
+  earth.rotation.y += rotationSpeed;
+  starField.rotation.y+=starRotationSpeed
   // Set opacity of a HomePage---
   if (op < 0) {
     home.style.display = "none";
@@ -139,17 +131,6 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-//Loader Animation
-// const load=document.querySelector(".loader");
-
-// setTimeout(() => {
-//   load.style.top="-100%"
-// }, 2000);
-
-// gsap.from(".HomePage .leftbox",{
-//   x:-200,
-//   duration:3,
-// })
 
 let aboutMeElement = document.querySelector(".rightbox p");
 let aboutMe = aboutMeElement.textContent;
@@ -176,9 +157,35 @@ gsap.from(".pg2 ", {
     markers:true,
     start:"top 20%",
     end:"top 20%",
-    scrub:1
+    scrub:1,
   },
 
+});
+gsap.from(".pg3 ", {
+  x: "100%",
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".pg3",
+    scroller:"body",
+    markers:true,
+    start:"top 30%",
+    end:"top 30%",
+    scrub:1
+  },
+});
+
+
+gsap.from(".pg4 ", {
+  x: "-100%",
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".pg4",
+    scroller:"body",
+    markers:true,
+    start:"top 30%",
+    end:"top 30%",
+    scrub:2
+  },
 });
 
 
