@@ -290,6 +290,20 @@ body::-webkit-scrollbar-thumb{
 {
   margin-top: 10px;
 }
+.pg5
+{
+  margin-top: 30%x;
+  height: 100vh;
+  width: 100vw;
+}
+.skill
+{
+  height: 10%;
+  width: 100vw; 
+  /* background-color: white; */
+  border-top: 2px solid rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
 
 
 

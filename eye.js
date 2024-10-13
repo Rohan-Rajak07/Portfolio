@@ -88,7 +88,7 @@ window.addEventListener("scroll", (e) => {
     scene.remove(object);
     scene.add(starField);
     scene.add(earth);
-    camera.position.z = 15;
+    camera.position.z = 700-currentScroll*60;
   } else {
     scene.add(object);
     scene.remove(starField);
@@ -154,7 +154,7 @@ gsap.from(".pg2 ", {
   scrollTrigger: {
     trigger: ".pg2",
     scroller:"body",
-    markers:true,
+    // markers:true,
     start:"top 20%",
     end:"top 20%",
     scrub:1,
@@ -167,7 +167,7 @@ gsap.from(".pg3 ", {
   scrollTrigger: {
     trigger: ".pg3",
     scroller:"body",
-    markers:true,
+    // markers:true,
     start:"top 30%",
     end:"top 30%",
     scrub:1
@@ -181,7 +181,7 @@ gsap.from(".pg4 ", {
   scrollTrigger: {
     trigger: ".pg4",
     scroller:"body",
-    markers:true,
+    // markers:true,
     start:"top 30%",
     end:"top 30%",
     scrub:2
