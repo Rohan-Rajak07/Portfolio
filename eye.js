@@ -88,7 +88,8 @@ window.addEventListener("scroll", (e) => {
     scene.remove(object);
     scene.add(starField);
     scene.add(earth);
-    camera.position.z = 700-currentScroll*60;
+    camera.position.z = 700-currentScroll*57;
+
   } else {
     scene.add(object);
     scene.remove(starField);
