@@ -83,7 +83,7 @@ let home = document.querySelector(".HomePage");
 //Scroll Eventlistener---
 window.addEventListener("scroll", (e) => {
   currentScroll = window.scrollY * 0.001;
-  console.log(currentScroll);
+  // console.log(currentScroll);
   if (currentScroll > 6) {
     scene.remove(object);
     scene.add(starField);
@@ -156,8 +156,8 @@ gsap.from(".pg2 ", {
     trigger: ".pg2",
     scroller:"body",
     // markers:true,
-    start:"top 20%",
-    end:"top 20%",
+    start:"top 50%",
+    end:"top 30%",
     scrub:1,
   },
 
@@ -169,8 +169,8 @@ gsap.from(".pg3 ", {
     trigger: ".pg3",
     scroller:"body",
     // markers:true,
-    start:"top 30%",
-    end:"top 30%",
+    start:"top 90%",
+    end:"top 40%",
     scrub:1
   },
 });
@@ -183,9 +183,22 @@ gsap.from(".pg4 ", {
     trigger: ".pg4",
     scroller:"body",
     // markers:true,
-    start:"top 30%",
-    end:"top 30%",
+    start:"top 90%",
+    end:"top 60%",
     scrub:2
+  },
+
+});
+gsap.from(".heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".heading",
+    scroller:"body",
+    // markers:true,
+    start:"top 20%",
+    end:"top 10%",
+    scrub:1,
   },
 });
 

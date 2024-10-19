@@ -178,23 +178,23 @@ body::-webkit-scrollbar-thumb{
 .rightbox p
 {
   /* background-color: gray; */
-  height: 210px;
+  height: 31%;
   width: 90%;
-  margin-top: 15px;
-  line-height: 1.7rem;
+  margin-top: 3vh;
+  line-height: 1.6rem;
   font-size: 17px;
   color: rgba(207, 204, 204, 0.811);
 
 }
 .rightbox .icons
 {
-  margin-top: 16px;
+  /* margin-top: 1px; */
   height: 70px;
   /* background-color: #ffffff; */
   border-radius: 20px;
   display:  flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
   /* justify-content: center; */
 }
 .icons img
@@ -225,10 +225,22 @@ body::-webkit-scrollbar-thumb{
 }
 .pg1
 {
+  /* background-color: pink; */
   height: 900vh;
   width: 100%;
   position: relative;
-  
+
+}
+.heading
+{
+  /* background-color: white; */
+  position: sticky;
+  top: 8%;
+  /* border-top: 1px solid white; */
+  z-index: 100;
+}
+.heading h1{
+  width: 18%;
 }
 .pg2, .pg3, .pg4
 {
