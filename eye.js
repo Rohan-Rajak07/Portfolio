@@ -157,8 +157,8 @@ gsap.from(".pg2 ", {
     scroller:"body",
     // markers:true,
     start:"top 50%",
-    end:"top 30%",
-    scrub:1,
+    end:"top 50%",
+    scrub:2,
   },
 
 });
@@ -170,8 +170,8 @@ gsap.from(".pg3 ", {
     scroller:"body",
     // markers:true,
     start:"top 90%",
-    end:"top 40%",
-    scrub:1
+    end:"top 90%",
+    scrub:2
   },
 });
 
@@ -184,11 +184,12 @@ gsap.from(".pg4 ", {
     scroller:"body",
     // markers:true,
     start:"top 90%",
-    end:"top 60%",
-    scrub:2
+    end:"top 90%",
+    scrub:3
   },
 
 });
+
 gsap.from(".heading", {
   opacity: 0,
   duration: 1,
@@ -196,12 +197,23 @@ gsap.from(".heading", {
     trigger: ".heading",
     scroller:"body",
     // markers:true,
-    start:"top 20%",
-    end:"top 10%",
-    scrub:1,
+    start:"top 30%",
+    end:"top 20%",
+    scrub:2,
   },
 });
-
+gsap.from(".heading", {
+  opacity: 0,
+  duration: 1,
+  scrollTrigger: {
+    trigger: ".pg4",
+    scroller:"body",
+    markers:true,
+    start:"top 5%",
+    end:"top 5%",
+    scrub:2,
+  },
+});
 
 
 //Add a listener to the window, so we can resize the window and the camera

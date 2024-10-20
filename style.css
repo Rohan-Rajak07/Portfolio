@@ -233,10 +233,8 @@ body::-webkit-scrollbar-thumb{
 }
 .heading
 {
-  /* background-color: white; */
   position: sticky;
   top: 8%;
-  /* border-top: 1px solid white; */
   z-index: 100;
 }
 .heading h1{
@@ -274,12 +272,7 @@ body::-webkit-scrollbar-thumb{
   height: 70%;
   width: 40%;
   color: white;
-  /* background-color: rgb(217, 42, 42); */
-  /* display: flex;
-  flex-direction: column; */
-  /* gap: 20px; */
-  /* align-items: center; */
-  /* justify-content: center; */
+
 }
 .disp h2{
   /* font-family:'Lacquer' ; */
@@ -370,10 +363,7 @@ body::-webkit-scrollbar-thumb{
   justify-content: space-evenly;
   /* flex-wrap: wrap; */
 }
-.lan:hover
-{
-  transform: scale(1.1);
-}
+
 
 
 
@@ -410,7 +400,7 @@ body::-webkit-scrollbar-thumb{
   }
   
   20%, 24%, 55% {        
-      text-shadow: none;
+      text-shadow: none ;
   }    
 }
 
