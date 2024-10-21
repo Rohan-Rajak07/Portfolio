@@ -370,6 +370,7 @@ body::-webkit-scrollbar-thumb{
   width: 50vw;
   /* position: relative; */
   /* background-color: red; */
+  position: relative;
 }
 *, *:before, *:after {
   box-sizing: border-box;
@@ -377,10 +378,7 @@ body::-webkit-scrollbar-thumb{
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  /* background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%); */
-  /* font-size: 12px; */
-}
+
 
 .background {
   display: flex;
@@ -400,6 +398,7 @@ body {
   background-color: #3e3e3e49;
   border-radius: 15px;
   border: 2px solid #3e3e3e;
+
 }
 
 .screen:after {

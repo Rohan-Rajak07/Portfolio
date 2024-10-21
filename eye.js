@@ -87,12 +87,17 @@ window.addEventListener("scroll", (e) => {
     scene.remove(object);
     scene.add(starField);
     scene.add(earth);
-    if(camera.position.z>10)
+    if(camera.position.z>12)
       {
         camera.position.z = 700-currentScroll*56;
         console.log(currentScroll);
         earth.position.x=currentScroll-5;
         earth.rotation.x=currentScroll;
+      }
+      else
+      {
+        camera.position.z = 12;
+        earth.position.x=8;
       }
 
   } 
@@ -221,12 +226,13 @@ gsap.from(".heading", {
   scrollTrigger: {
     trigger: ".pg4",
     scroller:"body",
-    markers:true,
+    // markers:true,
     start:"top 5%",
     end:"top 5%",
     scrub:2,
   },
 });
+
 
 
 //Add a listener to the window, so we can resize the window and the camera
