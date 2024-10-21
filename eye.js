@@ -50,8 +50,7 @@ const starField = new THREE.Points(starsGeometry, starsMaterial);
 
   // Increased rotation speed for more noticeable effect
   let rotationSpeed = 0.002; 
-  let starRotationSpeed=0.0002
-
+  let starRotationSpeed=0.0003
 
 
 const canvas = document.getElementById("draw");
@@ -84,7 +83,7 @@ let home = document.querySelector(".HomePage");
 window.addEventListener("scroll", (e) => {
   currentScroll = window.scrollY * 0.001;
   // console.log(currentScroll);
-  if (currentScroll > 6) {
+  if (currentScroll > 3.2) {//currentScroll > 6
     scene.remove(object);
     scene.add(starField);
     scene.add(earth);
@@ -107,11 +106,17 @@ window.addEventListener("scroll", (e) => {
   }
 
   //set opacity value
-  op = 1 - currentScroll * 0.2;
+  op = 1 - currentScroll * 0.4;
 
-  if (currentScroll > 1) {
-    object.scale.set(currentScroll, currentScroll, currentScroll);
-  }
+  //set scale value
+  console.log(currentScroll);
+  // if (currentScroll> 1) {
+  // }
+  object.scale.set(1+(currentScroll*6),1+(currentScroll*6), 1+(currentScroll*6));
+  // else
+  // {
+  //   object.scale.set(1, 1, 1);
+  // }
 });
 
 let mouseX = window.innerWidth / 2;
@@ -131,7 +136,7 @@ function animate() {
   }
 
   //Eye Movement
-  if (currentScroll < 2) {
+  if (currentScroll < 0.4) {//2
     object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
     object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
   } else {
@@ -156,7 +161,7 @@ function autowrite() {
     setTimeout(autowrite, speed);
   }
 }
-window.onload = autowrite;
+// window.onload = autowrite;
 
 gsap.from(".pg2 ", {
   x: "-100%",
