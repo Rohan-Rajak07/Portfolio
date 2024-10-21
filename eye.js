@@ -83,7 +83,7 @@ let home = document.querySelector(".HomePage");
 window.addEventListener("scroll", (e) => {
   currentScroll = window.scrollY * 0.001;
   // console.log(currentScroll);
-  if (currentScroll > 3.2) {//currentScroll > 6
+  if (currentScroll >6) {//currentScroll > 6
     scene.remove(object);
     scene.add(starField);
     scene.add(earth);
@@ -101,22 +101,21 @@ window.addEventListener("scroll", (e) => {
     scene.add(object);
     scene.remove(starField);
     scene.remove(earth);
-    
     camera.position.z = 700;
   }
 
   //set opacity value
-  op = 1 - currentScroll * 0.4;
+  op = 1 - currentScroll * 0.2;
 
   //set scale value
   console.log(currentScroll);
-  // if (currentScroll> 1) {
-  // }
-  object.scale.set(1+(currentScroll*6),1+(currentScroll*6), 1+(currentScroll*6));
-  // else
-  // {
-  //   object.scale.set(1, 1, 1);
-  // }
+  if (currentScroll> 1) {
+    object.scale.set(currentScroll,currentScroll, currentScroll);
+  }
+  else
+  {
+    object.scale.set(1, 1, 1);
+  }
 });
 
 let mouseX = window.innerWidth / 2;
@@ -136,7 +135,7 @@ function animate() {
   }
 
   //Eye Movement
-  if (currentScroll < 0.4) {//2
+  if (currentScroll < 2) {//2
     object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
     object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
   } else {

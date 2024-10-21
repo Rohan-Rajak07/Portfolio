@@ -43,6 +43,9 @@ body::-webkit-scrollbar-thumb{
   left: 0;
   z-index: 0;
 }
+.message{
+  display: none;
+}
 .HomePage{
   position: fixed;
   /* position: absolute; */
@@ -52,9 +55,6 @@ body::-webkit-scrollbar-thumb{
   top: 0;
   left: 0;
   background-color: transparent;
-  /* background-image: url(data/blood2.jpg);
-  background-position: center; */
-  /* background-size: cover; */
   display: flex;
   justify-content: space-between;
   color: white;
@@ -391,12 +391,15 @@ body {
   flex: 0 1 700px;
   margin: auto;
   padding: 10px;
+
 }
 
 .screen {
   position: relative;
-  background: #3e3e3e;
+  /* background: #3e3e3e; */
+  background-color: #3e3e3e49;
   border-radius: 15px;
+  border: 2px solid #3e3e3e;
 }
 
 .screen:after {
@@ -519,7 +522,7 @@ body {
   border-bottom: 1px solid #666;
   color: #ddd;
   font-size: 14px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   outline: none;
   transition: border-color .2s;
 }
@@ -548,8 +551,28 @@ body {
 
 
 
-@media screen and (max-width: 520px) {
-  .screen-body {
+@media only screen and (max-width: 600px) 
+{
+  .HomePage,.rightbox,.scroll
+  {
+    display: none;
+  }
+  .message
+  {
+    color: rgb(255, 0, 0);
+    display: block;
+    /* background-color: red; */
+    width: 100%;
+    padding: 1vw 10vw;
+    text-align: center;
+    font-family:monospace;
+    font-size:16px;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  /* .screen-body {
     flex-direction: column;
   }
 
@@ -567,18 +590,10 @@ body {
 
   .app-title:after {
     display: none;
-  }
+  } */
 }
 
-@media screen and (max-width: 600px) {
-  .screen-body {
-    padding: 40px;
-  }
 
-  .screen-body-item {
-    padding: 0;
-  }
-}
 
 
 
