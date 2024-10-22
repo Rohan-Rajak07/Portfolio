@@ -8,6 +8,7 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 // import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { shiftLeft } from "three/webgpu";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight,0.1,1000);
@@ -90,11 +91,10 @@ window.addEventListener("scroll", (e) => {
     if(camera.position.z>12)
       {
         camera.position.z = 700-currentScroll*56;
-        console.log(currentScroll);
         earth.position.x=currentScroll-5;
         earth.rotation.x=currentScroll;
       }
-      else
+    else
       {
         camera.position.z = 12;
         earth.position.x=8;
@@ -113,7 +113,6 @@ window.addEventListener("scroll", (e) => {
   op = 1 - currentScroll * 0.2;
 
   //set scale value
-  console.log(currentScroll);
   if (currentScroll> 1) {
     object.scale.set(currentScroll,currentScroll, currentScroll);
   }
@@ -234,7 +233,6 @@ gsap.from(".heading", {
 });
 
 
-
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -247,7 +245,6 @@ document.onmousemove = (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 };
-
 //Start the 3D rendering
 animate();
 
