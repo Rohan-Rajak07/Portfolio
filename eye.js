@@ -230,9 +230,8 @@ gsap.from(".heading", {
     scrub:2,
   },
 });
-
+//Moving to LastPage---
 document.querySelector(".goToLastPageButton").addEventListener("click",() => {
-  console.log("clicked");
   document.querySelector(".container").scrollIntoView({ behavior: "smooth" });
 });
 

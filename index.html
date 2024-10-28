@@ -207,25 +207,28 @@
                   <div class="app-contact">CONTACT INFO : +91 7477644961</div>
                 </div>
                 <div class="screen-body-item">
-                  <div class="app-form">
-                    <div class="app-form-group">
-                      <input class="app-form-control" placeholder="NAME" value="">
-                    </div>
-                    <div class="app-form-group">
-                      <input class="app-form-control" placeholder="EMAIL">
-                    </div>
-                    <div class="app-form-group">
-                      <input class="app-form-control" placeholder="CONTACT NO">
-                    </div>
-                    <div class="app-form-groupmessage">
+                  <form class="app-form" action="https://api.web3forms.com/submit" method="POST">
+
+                    <input type="hidden" name="access_key" value="e24b909f-33f1-4dff-9905-a2a3b54b57ee">
+                    <!-- <div class="app-form-group"> -->
+                      <input class="app-form-control app-form-group" type="text" name="name" placeholder="NAME" required>
+                    <!-- </div> -->
+                    <!-- <div class="app-form-group"> -->
+                      <input class="app-form-control app-form-group" placeholder="EMAIL" type="email" name="email" required>
+                    <!-- </div> -->
+                    <!-- <div class="app-form-group"> -->
+                      <input class="app-form-control app-form-group" placeholder="CONTACT NO" name="phone" type="number">
+                    <!-- </div> -->
+                    <!-- <div class="app-form-groupmessage"> -->
                       <!-- <textarea class="app-form-control" placeholder="MESSAGE"></textarea> -->
-                      <input class="app-form-control" placeholder="MESSAGE">
-                    </div>
-                    <div class="app-form-group buttons">
-                      <button class="app-form-button">CANCEL</button>
-                      <button class="app-form-button">SEND</button>
-                    </div>
-                  </div>
+                      <input class="app-form-control app-form-groupmessage" placeholder="MESSAGE" name="message" type="text" required>
+                      <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <!-- </div> -->
+                    <button type="submit" target="_blank" class="app-form-button">SEND</button>
+                    <!-- <div class="app-form-group buttons"> -->
+                      <!-- <button class="app-form-button">CANCEL</button> -->
+                    <!-- </div> -->
+                  </form>
                 </div>
               </div>
             </div>
