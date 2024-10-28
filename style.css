@@ -373,9 +373,8 @@ body::-webkit-scrollbar-thumb{
 {
   height: 150vh;
   width: 50vw;
-  /* position: relative; */
-  /* background-color: red; */
   position: relative;
+  /* background-color: red; */
 }
 *, *:before, *:after {
   box-sizing: border-box;
@@ -395,12 +394,13 @@ body::-webkit-scrollbar-thumb{
   padding: 10px;
   position: sticky;
   top: 25%;
+  /* background-color: #0fa; */
 
 }
 
 .screen {
   position: relative;
-  /* background: #3e3e3e; */
+  /* background: #fe0000; */
   background-color: #3e3e3e49;
   border-radius: 15px;
   border: 2px solid #3e3e3e;
@@ -509,7 +509,7 @@ body::-webkit-scrollbar-thumb{
   margin-bottom: 15px;
 }
 
-.app-form-group.message {
+.app-form-groupmessage {
   margin-top: 40px;
 }
 
@@ -546,6 +546,7 @@ body::-webkit-scrollbar-thumb{
   font-size: 14px;
   cursor: pointer;
   outline: none;
+  margin-top: 15px;
 }
 
 .app-form-button:hover {

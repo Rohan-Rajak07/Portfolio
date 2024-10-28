@@ -231,6 +231,10 @@ gsap.from(".heading", {
   },
 });
 
+document.querySelector(".goToLastPageButton").addEventListener("click",() => {
+  console.log("clicked");
+  document.querySelector(".container").scrollIntoView({ behavior: "smooth" });
+});
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
